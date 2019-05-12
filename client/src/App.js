@@ -8,7 +8,8 @@ import BecameAMember from "./Pages/Member/Create/Create.js";
 import Login from "./Pages/Member/Login/Login.js";
 import Error from "./Pages/Error/Error.js";
 import Footer from "./Components/Footer/Footer.js";
-
+import MyComponent from "./Components/MyComponents/MyComponent";
+import MyOtherComponent from "./Components/MyComponents/MyOtherComponent";
 import "./App.css";
 
 class App extends Component {
@@ -55,7 +56,7 @@ class App extends Component {
             </Switch>
           </div>
         </BrowserRouter>
-
+        {/* 
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
@@ -68,7 +69,11 @@ class App extends Component {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>{this.state.responseToPost}</p> */}
+
+        <MyComponent />
+        <hr />
+        <MyOtherComponent />
         <Footer />
       </div>
     );
