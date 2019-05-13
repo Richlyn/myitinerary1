@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import rootReducer from "./Store/Reducers/rootReducer";
-import thunk from "redux-thunk";
 
-import Store from "./Store/store";
 import Nav from "./Components/Nav/Nav.js";
 import Home from "./Pages/Home/Home.js";
 import Cities from "./Pages/Cities/Cities.js";
@@ -46,21 +41,20 @@ class App extends Component {
   };
   render() {
     return (
-      <Provider store={Store}>
-        <div id="page-wrap">
-          <BrowserRouter>
-            <div>
-              <Nav />
-              <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/Cities" component={Cities} />
-                <Route path="/BecomeAMember" component={BecameAMember} />
-                <Route path="/Login" component={Login} />
-                <Route component={Error} />
-              </Switch>
-            </div>
-          </BrowserRouter>
-          {/* 
+      <div id="page-wrap">
+        <BrowserRouter>
+          <div>
+            <Nav />
+            <Switch>
+              <Route path="/" component={Home} exact />
+              <Route path="/Cities" component={Cities} />
+              <Route path="/BecomeAMember" component={BecameAMember} />
+              <Route path="/Login" component={Login} />
+              <Route component={Error} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+        {/* 
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
@@ -74,9 +68,8 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p> */}
-          <Footer />
-        </div>
-      </Provider>
+        <Footer />
+      </div>
     );
   }
 }

@@ -10,24 +10,24 @@ const initialState = {
   ]
 };
 
-export default function(state = initialState, action) {
-  switch (action.type) {
-    case GET_ITEMS:
-      return {
-        ...state
-      };
-    default:
-      return state;
-  }
-}
+// export default function(state = initialState, action) {
+//   switch (action.type) {
+//     case GET_ITEMS:
+//       return {
+//         ...state
+//       };
+//     default:
+//       return state;
+//   }
+// }
 // const myObjectReducer = (state = initState, action) => {
 //     return state
 // }
 
-const itemReducer = (state = initialState, action) => {
+const cityReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_ITEM":
-      console.log("added item", action.payload.name);
+    case GET_ITEMS:
+      console.log("added city", action.payload.name);
       return [
         ...state,
         {
@@ -35,8 +35,17 @@ const itemReducer = (state = initialState, action) => {
           dateStamp: new Date()
         }
       ];
-    case "DELETE":
-      console.log("added item", action.payload.name);
+    case ADD_ITEM:
+      console.log("added city", action.payload.name);
+      return [
+        ...state,
+        {
+          name: action.payload.name,
+          dateStamp: new Date()
+        }
+      ];
+    case DELETE_ITEM:
+      console.log("deleted city", action.payload.name);
       return [
         ...state,
         {
@@ -48,3 +57,4 @@ const itemReducer = (state = initialState, action) => {
       return state;
   }
 };
+export default cityReducer;

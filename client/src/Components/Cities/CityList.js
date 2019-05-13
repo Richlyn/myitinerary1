@@ -1,32 +1,32 @@
 import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-//import { connect } from "react-redux";
-//import { getItems, deleteItemms } from "../Actions/firstAction";
+import { connect } from "react-redux";
+//import { getItems, deleteItemms } from "../Actions/cityAction";
 import PropTypes from "prop-types";
 
 class CityList extends Component {
   static propTypes = {
-    getItems: PropTypes.func.isRequired,
-    item: PropTypes.object.isRequired,
+    // getCities: PropTypes.func.isRequired,
+    cities: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   };
 
-  componentDidMount() {
-    this.props.getItems();
-  }
+  // componentDidMount() {
+  //   this.props.getCities();
+  // }
 
-  onDeleteClick = id => {
-    this.props.deleteItem(id);
-  };
+  // onDeleteClick = id => {
+  //   this.props.deleteCities(id);
+  // };
 
   render() {
-    const { items } = this.props.item;
+    const { cities } = this.props;
     return (
       <Container>
         <ListGroup>
           <TransitionGroup className="city-list">
-            {items.map(({ _id, name }) => (
+            {cities.map(({ _id, name }) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   {this.props.isAuthenticated ? (
@@ -50,14 +50,15 @@ class CityList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  item: state.item,
-  isAuthenticated: state.auth.isAuthenticated
-});
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    cities: state.city.items
+    //isAuthenticated: state.auth.isAuthenticated
+  };
+};
 
-// export default connect(
-//   mapStateToProps,
-//   { getItems, deleteItem }
-// )(CityList);
-
-export default CityList;
+export default connect(
+  mapStateToProps
+  //  { getItems, deleteItem }
+)(CityList);

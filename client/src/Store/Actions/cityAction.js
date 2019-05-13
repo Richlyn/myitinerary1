@@ -1,9 +1,4 @@
-import {
-  GET_ITEMS,
-  ADD_ITEM,
-  DELETE_ITEM,
-  ITEMS_LOADING
-} from "../Actions/actionTypes";
+import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./actionTypes";
 
 const initialState = {
   items: [],
