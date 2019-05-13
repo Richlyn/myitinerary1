@@ -1,11 +1,7 @@
 import "./index.css";
 import App from "./App";
 import React from "react";
-import thunk from "redux-thunk";
 import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import rootReducer from "./Store/Reducers/rootReducer";
 
 import * as serviceWorker from "./serviceWorker";
 
@@ -15,6 +11,6 @@ ReactDOM.render(<App />, document.getElementById("root"));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-const store = createStore(rootReducer, applyMiddleware(thunk));
+//const store = createStore(rootReducer, applyMiddleware(thunk));
 //const store = createStore(rootReducer);
-document.getElementbyId("root");
+//document.getElementbyId("root");

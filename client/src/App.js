@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import rootReducer from "./Store/Reducers/rootReducer";
+import thunk from "redux-thunk";
 
+import Store from "./Store/store";
 import Nav from "./Components/Nav/Nav.js";
 import Home from "./Pages/Home/Home.js";
 import Cities from "./Pages/Cities/Cities.js";
@@ -8,8 +13,6 @@ import BecameAMember from "./Pages/Member/Create/Create.js";
 import Login from "./Pages/Member/Login/Login.js";
 import Error from "./Pages/Error/Error.js";
 import Footer from "./Components/Footer/Footer.js";
-import MyComponent from "./Components/MyComponents/MyComponent";
-import MyOtherComponent from "./Components/MyComponents/MyOtherComponent";
 import "./App.css";
 
 class App extends Component {
@@ -43,20 +46,21 @@ class App extends Component {
   };
   render() {
     return (
-      <div id="page-wrap">
-        <BrowserRouter>
-          <div>
-            <Nav />
-            <Switch>
-              <Route path="/" component={Home} exact />
-              <Route path="/Cities" component={Cities} />
-              <Route path="/BecomeAMember" component={BecameAMember} />
-              <Route path="/Login" component={Login} />
-              <Route component={Error} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-        {/* 
+      <Provider store={Store}>
+        <div id="page-wrap">
+          <BrowserRouter>
+            <div>
+              <Nav />
+              <Switch>
+                <Route path="/" component={Home} exact />
+                <Route path="/Cities" component={Cities} />
+                <Route path="/BecomeAMember" component={BecameAMember} />
+                <Route path="/Login" component={Login} />
+                <Route component={Error} />
+              </Switch>
+            </div>
+          </BrowserRouter>
+          {/* 
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
@@ -70,12 +74,9 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p> */}
-
-        <MyComponent />
-        <hr />
-        <MyOtherComponent />
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </Provider>
     );
   }
 }

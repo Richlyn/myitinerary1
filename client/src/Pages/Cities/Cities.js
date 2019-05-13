@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CityList from "../../Components/Cities/CityList.js";
-import "./Cities.css";
+//import "./Cities.css";
 
 class Cities extends Component {
   render() {
