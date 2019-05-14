@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
+import { getCities } from "../../Store/Actions/cityAction";
 //import { getItems, deleteItemms } from "../Actions/cityAction";
 import PropTypes from "prop-types";
 
@@ -12,9 +13,9 @@ class CityList extends Component {
     isAuthenticated: PropTypes.bool
   };
 
-  // componentDidMount() {
-  //   this.props.getCities();
-  // }
+  componentDidMount() {
+    this.props.getCities();
+  }
 
   // onDeleteClick = id => {
   //   this.props.deleteCities(id);
@@ -22,9 +23,10 @@ class CityList extends Component {
 
   render() {
     const { cities } = this.props;
+    console.log(this.props);
     return (
       <Container>
-        <ListGroup>
+        {/* <ListGroup>
           <TransitionGroup className="city-list">
             {cities.map(({ _id, name }) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
@@ -44,7 +46,7 @@ class CityList extends Component {
               </CSSTransition>
             ))}
           </TransitionGroup>
-        </ListGroup>
+        </ListGroup> */}
       </Container>
     );
   }
@@ -53,12 +55,11 @@ class CityList extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    cities: state.city.items
-    //isAuthenticated: state.auth.isAuthenticated
+    // cities: state.cityName
   };
 };
 
 export default connect(
-  mapStateToProps
-  //  { getItems, deleteItem }
+  mapStateToProps,
+  { getCities }
 )(CityList);

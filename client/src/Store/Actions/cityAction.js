@@ -1,34 +1,27 @@
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./actionTypes";
+import {
+  GET_CITIES,
+  GET_CITIES_ERR,
+  ADD_ITEM,
+  DELETE_ITEM,
+  ITEMS_LOADING
+} from "./actionTypes";
+import axios from "axios";
 
-const initialState = {
-  items: [],
-  loading: false
+export const getCities = () => {
+  return dispatch => {
+    axios
+      .get("http://localhost:5000/api/cities/all")
+      .then(res =>
+        dispatch({
+          type: GET_CITIES,
+          payload: res.data
+        })
+      )
+      .catch(err =>
+        dispatch({
+          type: GET_CITIES_ERR,
+          payload: err
+        })
+      );
+  };
 };
-
-export default function(state = initialState, action) {
-  switch (action.type) {
-    case GET_ITEMS:
-      return {
-        ...state,
-        items: action.payload,
-        loading: false
-      };
-    case DELETE_ITEM:
-      return {
-        ...state,
-        items: state.items.filter(item => item._id !== action.payload)
-      };
-    case ADD_ITEM:
-      return {
-        ...state,
-        items: [action.payload, ...state.items]
-      };
-    case ITEMS_LOADING:
-      return {
-        ...state,
-        loading: true
-      };
-    default:
-      return state;
-  }
-}
