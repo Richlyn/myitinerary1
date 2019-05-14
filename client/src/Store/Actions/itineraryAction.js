@@ -1,5 +1,6 @@
 import { GET_ITINS, GET_ITINS_ERR } from "./actionTypes";
 import axios from "axios";
+
 export const getItins = () => {
   return dispatch => {
     axios

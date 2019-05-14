@@ -13,7 +13,7 @@ class ItineraryList extends Component {
   };
 
   componentDidMount() {
-    this.props.getItineraries();
+    this.props.getItins();
   }
 
   render() {

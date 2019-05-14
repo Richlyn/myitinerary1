@@ -1,10 +1,4 @@
-import {
-  GET_CITIES,
-  GET_CITIES_ERR,
-  ADD_ITEM,
-  DELETE_ITEM,
-  ITEMS_LOADING
-} from "./actionTypes";
+import { GET_CITIES, GET_CITIES_ERR } from "./actionTypes";
 import axios from "axios";
 
 export const getCities = () => {

@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./config/keys").mongoURI;
 const citiesRoute = require("./routes/api/cities");
+//const itinerariesRoute = require("./routes/api/itineraries");
 
 const cors = require("cors");
 const app = express();
@@ -15,6 +16,8 @@ mongoose
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/cities", citiesRoute);
+//app.use("/api/itineraries", itinerariesRoute);
+
 app.use(
   cors({
     origin: "http://localhost:3000"

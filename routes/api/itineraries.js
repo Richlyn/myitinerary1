@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const City = require("../../models/itineraries");
+const Itinerary = require("../../models/Itinerary");
 
 
-router.get("/itineraries", function(req, res){
-  itineraries
-  .find()
+router.get("/", function(req, res){
+  Itinerary.find()
   .then(itineraries => {
     if (!itineraries){
       return res.status(404).json ({"oops! no itineraries"})

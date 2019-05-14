@@ -4,6 +4,6 @@ import itineraryReducer from "./itineraryReducer";
 
 const rootReducer = combineReducers({
   citiesObj: cityReducer,
-  itineraryObj: itineraryReducer
+  itinerariesObj: itineraryReducer
 });
 export default rootReducer;

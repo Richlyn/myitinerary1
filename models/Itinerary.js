@@ -3,22 +3,28 @@ const Schema = mongoose.Schema;
 
 const ItinerarySchema = new Schema({
   title: {
-    type: String
+    type: String,
+    required: true
   },
   profilepic: {
-    type: String
+    type: String,
+    required: true
   },
   rating: {
-    type: Number
+    type: Number,
+    required: true
   },
   duration: {
-    type: Number
+    type: Number,
+    required: true
   },
   price: {
-    type: Number
+    type: Number,
+    required: true
   },
   hashtag: {
-    type: Array
+    type: Array,
+    required: true
   }
 });
 module.exports = Itinerary = mongoose.model("itinerary", ItinerarySchema);
