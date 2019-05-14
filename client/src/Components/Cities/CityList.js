@@ -23,39 +23,45 @@ class CityList extends Component {
 
   render() {
     const { cities } = this.props;
-    console.log(this.props);
+    console.log(cities);
     return (
       <Container>
-        {/* <ListGroup>
+        <ListGroup>
           <TransitionGroup className="city-list">
-            {cities.map(({ _id, name }) => (
-              <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem>
-                  {this.props.isAuthenticated ? (
-                    <Button
-                      className="remove-btn"
-                      color="danger"
-                      size="sm"
-                      onClick={this.onDeleteClick.bind(this, _id)}
-                    >
-                      &times;
-                    </Button>
-                  ) : null}
-                  {name}
-                </ListGroupItem>
-              </CSSTransition>
-            ))}
+            {cities &&
+              cities.map(cities => {
+                return (
+                  <CSSTransition
+                    key={cities._id}
+                    timeout={500}
+                    classNames="fade"
+                  >
+                    <ListGroupItem>
+                      {this.props.isAuthenticated ? (
+                        <Button
+                          className="remove-btn"
+                          color="danger"
+                          size="sm"
+                          onClick={this.onDeleteClick.bind(this, cities._id)}
+                        >
+                          &times;
+                        </Button>
+                      ) : null}
+                      {cities.cityName}, {cities.country}
+                    </ListGroupItem>
+                  </CSSTransition>
+                );
+              })}
           </TransitionGroup>
-        </ListGroup> */}
+        </ListGroup>
       </Container>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
-    // cities: state.cityName
+    cities: state.citiesObj.cities
   };
 };
 
