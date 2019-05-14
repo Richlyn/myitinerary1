@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const City = require("../../models/City");
 
-router.get("/all", function(req, res) {
+router.get("/", function(req, res) {
   City.find()
     .then(cities => {
       if (!cities) {
@@ -13,18 +13,17 @@ router.get("/all", function(req, res) {
     .catch(err => res.status(404).json({ nocities: "There are no cities" }));
 });
 
-router.get("/cityname", function(req, res) {
-  CityName.find()
-    .then(cityName => {
-      if (!cityName) {
-        return res.status(400).json({ msg: "no city found" });
-      }
-      res.json(cityName);
-    })
-    .catch(err =>
-      res.status(404).json({ msg: "There are no cities available" })
-    );
-});
+// router.get("/itinerary", function(req, res){
+//   itinerary
+//   .find()
+//   .then(itinerary => {
+//     if (!itinerary){
+//       return res.status(404).json ({"oops! no itineraries"})
+//     }
+//     res.json(itinerary);
+//   })
+//   .catch(err => res.status(404).json({"sorry Error"}))
+// })
 
 // app.post("/name/add", (req, res, next) => {
 //   var name = {

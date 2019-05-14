@@ -2,36 +2,32 @@ import React, { Component } from "react";
 import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
-import { getCities } from "../../Store/Actions/cityAction";
+import { getItins } from "../../Store/Actions/itineraryAction";
 import PropTypes from "prop-types";
 
-class CityList extends Component {
+class ItineraryList extends Component {
   static propTypes = {
     // getCities: PropTypes.func.isRequired,
-    cities: PropTypes.object.isRequired,
+    itineraries: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
   };
 
   componentDidMount() {
-    this.props.getCities();
+    this.props.getItineraries();
   }
 
-  // onDeleteClick = id => {
-  //   this.props.deleteCities(id);
-  // };
-
   render() {
-    const { cities } = this.props;
-    console.log(cities);
+    const { itineraries } = this.props;
+    console.log(itineraries);
     return (
       <Container>
         <ListGroup>
-          <TransitionGroup className="city-list">
-            {cities &&
-              cities.map(cities => {
+          <TransitionGroup className="itinerary-list">
+            {itineraries &&
+              itineraries.map(itineraries => {
                 return (
                   <CSSTransition
-                    key={cities._id}
+                    key={itineraries.title}
                     timeout={500}
                     classNames="fade"
                   >
@@ -41,12 +37,16 @@ class CityList extends Component {
                           className="remove-btn"
                           color="danger"
                           size="sm"
-                          onClick={this.onDeleteClick.bind(this, cities._id)}
+                          onClick={this.onDeleteClick.bind(
+                            this,
+                            itineraries.title
+                          )}
                         >
                           &times;
                         </Button>
                       ) : null}
-                      {cities.cityName}, {cities.country}
+                      {itineraries.title}, {itineraries.rating},{" "}
+                      {itineraries.duration}, {itineraries.price}
                     </ListGroupItem>
                   </CSSTransition>
                 );
@@ -60,11 +60,11 @@ class CityList extends Component {
 
 const mapStateToProps = state => {
   return {
-    cities: state.citiesObj.cities
+    itineraries: state.itinerariesObj.itineraries
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getCities }
-)(CityList);
+  { getItins }
+)(ItineraryList);

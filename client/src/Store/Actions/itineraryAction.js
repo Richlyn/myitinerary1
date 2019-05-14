@@ -1,26 +1,19 @@
-import {
-  GET_CITIES,
-  GET_CITIES_ERR,
-  ADD_ITEM,
-  DELETE_ITEM,
-  ITEMS_LOADING
-} from "./actionTypes";
+import { GET_ITINS, GET_ITINS_ERR } from "./actionTypes";
 import axios from "axios";
-
-export const getCities = () => {
+export const getItins = () => {
   return dispatch => {
     axios
-      .get("http://localhost:5000/api/cities")
+      .get("http://localhost:5000/api/itineraries")
       .then(res => {
         console.log(res);
         dispatch({
-          type: GET_CITIES,
+          type: GET_ITINS,
           payload: res.data
         });
       })
       .catch(err =>
         dispatch({
-          type: GET_CITIES_ERR,
+          type: GET_ITINS_ERR,
           payload: err
         })
       );

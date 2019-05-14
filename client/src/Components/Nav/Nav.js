@@ -15,6 +15,10 @@ class Nav extends Component {
             Cities
           </NavLink>
 
+          <NavLink className="menu-item" to="/Itineraries">
+            Itineraries
+          </NavLink>
+
           <NavLink className="menu-item" to="/BecomeAMember">
             Become a Member
           </NavLink>
