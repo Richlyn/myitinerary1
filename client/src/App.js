@@ -42,7 +42,8 @@ class App extends Component {
           <button type="submit">Submit</button>
         </form>
         <p>{this.state.responseToPost}</p> */}
-        <Footer />
+
+        {/* <Footer /> */}
       </div>
     );
   }

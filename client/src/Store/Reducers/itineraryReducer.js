@@ -1,9 +1,9 @@
 import { GET_ITINS, GET_ITINS_ERR } from "../Actions/actionTypes";
 
-const initialState = [
-  //   itineraries: [],
+const initialState = {
+  itineraries: []
   //   loading: false
-];
+};
 
 const itineraryReducer = (state = initialState, action) => {
   switch (action.type) {

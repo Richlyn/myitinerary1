@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import { getItins } from "../../Store/Actions/itineraryAction";
 import PropTypes from "prop-types";
+// import Card from "react-bootstrap/Card";
 
 class ItineraryList extends Component {
   static propTypes = {
@@ -18,7 +19,6 @@ class ItineraryList extends Component {
 
   render() {
     const { itineraries } = this.props;
-    console.log(itineraries);
     return (
       <Container>
         <ListGroup>
@@ -57,6 +57,17 @@ class ItineraryList extends Component {
     );
   }
 }
+// card(
+//   <Card>
+//     <Card.Img variant="top" src="holder.js/100px180" />
+//     <Card.Body>
+//       <Card.Text>
+//         Some quick example text to build on the card title and make up the bulk
+//         of the card's content.
+//       </Card.Text>
+//     </Card.Body>
+//   </Card>
+// );
 
 const mapStateToProps = state => {
   return {

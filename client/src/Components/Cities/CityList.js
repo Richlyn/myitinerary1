@@ -22,7 +22,6 @@ class CityList extends Component {
 
   render() {
     const { cities } = this.props;
-    console.log(cities);
     return (
       <Container>
         <ListGroup>

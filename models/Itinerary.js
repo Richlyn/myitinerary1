@@ -15,15 +15,15 @@ const ItinerarySchema = new Schema({
     required: true
   },
   duration: {
-    type: Number,
+    type: String,
     required: true
   },
   price: {
-    type: Number,
+    type: String,
     required: true
   },
   hashtag: {
-    type: Array,
+    type: String,
     required: true
   }
 });

@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/cities", require("./routes/api/cities"));
 app.use("/api/itineraries", require("./routes/api/itineraries"));
+app.use("/api/activities", require("./routes/api/activities"));
 
 app.use(
   cors({

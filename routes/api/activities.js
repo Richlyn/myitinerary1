@@ -1,22 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const Itinerary = require("../../models/Itinerary");
+const Activity = require("../../models/Activity");
 
 router.get("/", function(req, res) {
-  Itinerary.find()
-    .then(itineraries => {
-      if (!itineraries) {
-        return res.status(404).json("oops! no itineraries");
+  Activity.find()
+    .then(activities => {
+      if (!activities) {
+        return res.status(404).json("oops! no activities");
       }
-      res.json(itineraries);
+      res.json(activities);
     })
-    .catch(err => res.status(404).json("sorry Error"));
-});
-
-router.get("/:city", function(req, res) {
-  var choice = req.params.city;
-  var responseObj = { message: "this works" + choice + "seriously" };
-  res.send(choice);
+    .catch(err => res.status(404).json("ach no sorry Error"));
 });
 
 // app.post("/name/add", (req, res, next) => {

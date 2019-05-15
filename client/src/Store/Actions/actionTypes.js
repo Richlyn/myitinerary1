@@ -6,3 +6,6 @@ export const CITIES_LOADING = "CITIESS_LOADING";
 
 export const GET_ITINS = "GET_ITINS";
 export const GET_ITINS_ERR = "GET_ITINS_ERR";
+
+export const GET_ACTIVITIES = "GET_ACTIVITIES_ERR";
+export const GET_ACTIVITIES_ERR = "GET_ACTIVITIES_ERR";
