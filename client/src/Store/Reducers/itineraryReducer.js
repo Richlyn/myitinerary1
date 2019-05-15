@@ -1,9 +1,9 @@
 import { GET_ITINS, GET_ITINS_ERR } from "../Actions/actionTypes";
 
-const initialState = {
-  itineraries: [],
-  loading: false
-};
+const initialState = [
+  //   itineraries: [],
+  //   loading: false
+];
 
 const itineraryReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const itineraryReducer = (state = initialState, action) => {
         itineraries: action.payload
       };
     case GET_ITINS_ERR:
-      console.log("err");
+      console.log("intinerary err");
       return state;
 
     default:

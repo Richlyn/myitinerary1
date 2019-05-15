@@ -2,21 +2,23 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./config/keys").mongoURI;
-const citiesRoute = require("./routes/api/cities");
-//const itinerariesRoute = require("./routes/api/itineraries");
+const path = require("path");
 
 const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
+
+//Connect to Mongo
 mongoose
   .connect(db, { useNewUrlParser: true, createindex: true })
-  .then(() => console.log("connected to mongodb"))
+  .then(() => console.log("MongoDB connected..."))
   .catch(err => console.log(err));
 
+//Use Routes
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/api/cities", citiesRoute);
-//app.use("/api/itineraries", itinerariesRoute);
+app.use("/api/cities", require("./routes/api/cities"));
+app.use("/api/itineraries", require("./routes/api/itineraries"));
 
 app.use(
   cors({

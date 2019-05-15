@@ -1,8 +1,8 @@
 import { GET_CITIES, GET_CITIES_ERR } from "../Actions/actionTypes";
 
 const initialState = {
-  cities: [],
-  loading: false
+  //cities: [],
+  // loading: false
 };
 
 const cityReducer = (state = initialState, action) => {
