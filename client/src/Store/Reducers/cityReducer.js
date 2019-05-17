@@ -1,7 +1,7 @@
 import { GET_CITIES, GET_CITIES_ERR } from "../Actions/actionTypes";
 
 const initialState = {
-  cities: []
+  //cities: []
   // loading: false
 };
 

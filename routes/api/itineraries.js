@@ -13,10 +13,12 @@ router.get("/", function(req, res) {
     .catch(err => res.status(404).json("sorry Error"));
 });
 
-router.get("/:city", function(req, res) {
-  var choice = req.params.city;
-  var responseObj = { message: "this works" + choice + "seriously" };
-  res.send(choice);
+router.get("/:cities._id", function(req, res) {
+  var choice = req.params.cities;
+  var responseObj = {
+    message: "this works" + " " + choice + "  " + "seriously"
+  };
+  res.send(responseObj);
 });
 
 // app.post("/name/add", (req, res, next) => {

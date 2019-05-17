@@ -8,8 +8,8 @@ import PropTypes from "prop-types";
 class CityList extends Component {
   static propTypes = {
     // getCities: PropTypes.func.isRequired,
-    cities: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool
+    cities: PropTypes.object.isRequired
+    //isAuthenticated: PropTypes.bool
   };
 
   componentDidMount() {

@@ -1,7 +1,7 @@
 import { GET_ACTIVITIES, GET_ACTIVITIES_ERR } from "../Actions/actionTypes";
 
 const initialState = {
-  activites: []
+  // activites: []
   //   loading: false
 };
 
