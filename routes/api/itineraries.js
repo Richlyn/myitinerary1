@@ -13,12 +13,15 @@ router.get("/", function(req, res) {
     .catch(err => res.status(404).json("sorry Error"));
 });
 
-router.get("/:cities._id", function(req, res) {
-  var choice = req.params.cities;
-  var responseObj = {
-    message: "this works" + " " + choice + "  " + "seriously"
-  };
-  res.send(responseObj);
+router.get("/:name", function(req, res) {
+  var city = req.params.name;
+  Itinerary.find({ City: city }, (err, itineraries) => {
+    if (!itineraries) {
+      return res.status(404).json(err);
+    } else {
+      res.send(itineraries);
+    }
+  });
 });
 
 // app.post("/name/add", (req, res, next) => {

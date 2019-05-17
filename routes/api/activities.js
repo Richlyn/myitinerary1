@@ -13,6 +13,17 @@ router.get("/", function(req, res) {
     .catch(err => res.status(404).json("ach no sorry Error"));
 });
 
+router.get("/:name", function(req, res) {
+  var city = req.params.name;
+  Activity.find({ City: city }, (err, activities) => {
+    if (!activities) {
+      return res.status(404).json(err);
+    } else {
+      res.send(activities);
+    }
+  });
+});
+
 // app.post("/name/add", (req, res, next) => {
 //   var name = {
 //     first_name: req.body.first_name,

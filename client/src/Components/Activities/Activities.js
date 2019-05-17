@@ -14,45 +14,6 @@ class Activities extends Component {
     this.props.getActivs();
   }
 
-  // render() {
-  //   const { activities } = this.props;
-  //   return (
-  //     <Container>
-  //       <ListGroup>
-  //         <TransitionGroup className="city-list">
-  //           {activities &&
-  //             activities.map(activities => {
-  //               return (
-  //                 <CSSTransition
-  //                   key={activities.title}
-  //                   timeout={500}
-  //                   classNames="fade"
-  //                 >
-  //                   <ListGroupItem>
-  //                     {this.props.isAuthenticated ? (
-  //                       <Button
-  //                         className="remove-btn"
-  //                         color="danger"
-  //                         size="sm"
-  //                         onClick={this.onDeleteClick.bind(
-  //                           this,
-  //                           activities._id
-  //                         )}
-  //                       >
-  //                         &times;
-  //                       </Button>
-  //                     ) : null}
-  //                     {activities.title}
-  //                   </ListGroupItem>
-  //                 </CSSTransition>
-  //               );
-  //             })}
-  //         </TransitionGroup>
-  //       </ListGroup>
-  //     </Container>
-  //   );
-  // }
-
   render() {
     const { activities } = this.props;
     return (

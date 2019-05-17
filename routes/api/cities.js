@@ -13,14 +13,6 @@ router.get("/", function(req, res) {
     .catch(err => res.status(404).json({ nocities: "There are no cities" }));
 });
 
-router.get("/:itineraries._id", function(req, res) {
-  var choice = req.params.itineraries;
-  var responseObj = {
-    message: "this works" + " " + choice + " " + "seriously"
-  };
-  res.send(responseObj);
-});
-
 // app.post("/name/add", (req, res, next) => {
 //   var name = {
 //     first_name: req.body.first_name,

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getItins } from "../../Store/Actions/itineraryAction";
 import PropTypes from "prop-types";
 // import Card from "react-bootstrap/Card";
+import "./Itineraries.css";
 
 class ItineraryList extends Component {
   static propTypes = {
