@@ -24,18 +24,4 @@ router.get("/:name", function(req, res) {
   });
 });
 
-// app.post("/name/add", (req, res, next) => {
-//   var name = {
-//     first_name: req.body.first_name,
-//     last_name: req.body.last_name
-//   };
-
-//   dbase.collection("name").save(name, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-
-//     res.send("name added successfully");
-//   });
-// });
 module.exports = router;

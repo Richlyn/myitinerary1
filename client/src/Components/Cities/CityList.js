@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import React from "react";
+// import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { connect } from "react-redux";
 import { getCities } from "../../Store/Actions/cityAction";
 import PropTypes from "prop-types";
+
+import { withStyles } from "@material-ui/core/styles";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import "./CityList.css";
 
 class CityList extends Component {
   static propTypes = {
@@ -16,52 +25,48 @@ class CityList extends Component {
     this.props.getCities();
   }
 
-  // onDeleteClick = id => {
-  //   this.props.deleteCities(id);
-  // };
-
   render() {
     const { cities } = this.props;
     return (
-      <Container>
-        <ListGroup>
-          <TransitionGroup className="city-list">
-            {cities &&
-              cities.map(cities => {
-                return (
-                  <CSSTransition
-                    key={cities._id}
-                    timeout={500}
-                    classNames="fade"
-                  >
-                    <ListGroupItem>
-                      {this.props.isAuthenticated ? (
-                        <Button
-                          className="remove-btn"
-                          color="danger"
-                          size="sm"
-                          onClick={this.onDeleteClick.bind(this, cities._id)}
-                        >
-                          &times;
-                        </Button>
-                      ) : null}
-                      {cities.cityName}, {cities.country}
-                    </ListGroupItem>
-                  </CSSTransition>
-                );
-              })}
-          </TransitionGroup>
-        </ListGroup>
-      </Container>
+      <div className={cities}>
+        <GridList cellHeight={200} spacing={1} className={cities}>
+          {cities &&
+            cities.map(cities => (
+              <GridListTile
+                key={cities.img}
+                cols={cities.featured ? 2 : 1}
+                rows={cities.featured ? 2 : 1}
+              >
+                <img src={cities.img} alt={cities.cityName} />
+                <GridListTileBar
+                  title={cities.cityName}
+                  titlePosition="top"
+                  actionIcon={
+                    <IconButton className={cities.icon}>
+                      <StarBorderIcon />
+                    </IconButton>
+                  }
+                  actionPosition="left"
+                  className={cities.cityName}
+                />
+              </GridListTile>
+            ))}
+        </GridList>
+      </div>
     );
   }
 }
 
+CityList.propTypes = {
+  cities: PropTypes.object.isRequired
+};
 const mapStateToProps = state => {
   return {
     cities: state.citiesObj.cities
   };
 };
+
+//export default withStyles(styles)(CityList);
 
 export default connect(
   mapStateToProps,

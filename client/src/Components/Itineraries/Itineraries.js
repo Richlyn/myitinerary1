@@ -46,8 +46,9 @@ class ItineraryList extends Component {
                           &times;
                         </Button>
                       ) : null}
-                      {itineraries.title}, {itineraries.rating},{" "}
-                      {itineraries.duration}, {itineraries.price}
+                      {itineraries.MYtineraryName}, {itineraries.rating},{" "}
+                      {itineraries.duration}, {itineraries.city},
+                      {itineraries.country}
                     </ListGroupItem>
                   </CSSTransition>
                 );
@@ -58,17 +59,6 @@ class ItineraryList extends Component {
     );
   }
 }
-// card(
-//   <Card>
-//     <Card.Img variant="top" src="holder.js/100px180" />
-//     <Card.Body>
-//       <Card.Text>
-//         Some quick example text to build on the card title and make up the bulk
-//         of the card's content.
-//       </Card.Text>
-//     </Card.Body>
-//   </Card>
-// );
 
 const mapStateToProps = state => {
   return {

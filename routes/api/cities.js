@@ -13,18 +13,4 @@ router.get("/", function(req, res) {
     .catch(err => res.status(404).json({ nocities: "There are no cities" }));
 });
 
-// app.post("/name/add", (req, res, next) => {
-//   var name = {
-//     first_name: req.body.first_name,
-//     last_name: req.body.last_name
-//   };
-
-//   dbase.collection("name").save(name, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-
-//     res.send("name added successfully");
-//   });
-// });
 module.exports = router;

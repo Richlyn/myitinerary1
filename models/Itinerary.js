@@ -2,27 +2,27 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ItinerarySchema = new Schema({
-  title: {
+  city: {
     type: String,
     required: true
   },
-  profilepic: {
+  country: {
     type: String,
     required: true
   },
-  rating: {
-    type: Number,
+  MYtineraryName: {
+    type: String,
+    required: true
+  },
+  userPic: {
+    type: String,
     required: true
   },
   duration: {
     type: String,
     required: true
   },
-  price: {
-    type: String,
-    required: true
-  },
-  hashtag: {
+  rating: {
     type: String,
     required: true
   }

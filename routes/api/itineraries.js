@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
 
 router.get("/:name", function(req, res) {
   var city = req.params.name;
-  Itinerary.find({ City: city }, (err, itineraries) => {
+  Itinerary.find({ city: city }, (err, itineraries) => {
     if (!itineraries) {
       return res.status(404).json(err);
     } else {
@@ -24,18 +24,4 @@ router.get("/:name", function(req, res) {
   });
 });
 
-// app.post("/name/add", (req, res, next) => {
-//   var name = {
-//     first_name: req.body.first_name,
-//     last_name: req.body.last_name
-//   };
-
-//   dbase.collection("name").save(name, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-
-//     res.send("name added successfully");
-//   });
-// });
 module.exports = router;

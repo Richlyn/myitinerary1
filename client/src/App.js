@@ -43,7 +43,7 @@ class App extends Component {
         </form>
         <p>{this.state.responseToPost}</p> */}
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
