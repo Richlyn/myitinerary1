@@ -14,8 +14,8 @@ router.get("/", function(req, res) {
 });
 
 router.get("/:name", function(req, res) {
-  var city = req.params.name;
-  Activity.find({ City: city }, (err, activities) => {
+  var MYtineraryName = req.params.name;
+  Activity.find({ MYtineraryName: MYtineraryName }, (err, activities) => {
     if (!activities) {
       return res.status(404).json(err);
     } else {

@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import { Container } from "reactstrap";
+// import { CSSTransition, TransitionGroup } from "react-transition-group";
+// import Carousel from "react-bootstrap/Carousel";import PropTypes from 'prop-types';
+
 import { connect } from "react-redux";
 import { getActivs } from "../../Store/Actions/activityAction";
 import PropTypes from "prop-types";
-import Carousel from "react-bootstrap/Carousel";
-import Cards from "../../Components/Activities/Cards";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import IconButton from "@material-ui/core/IconButton";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
+import "./Activities.css";
 
 class Activities extends Component {
-  static propTypes = {
-    activities: PropTypes.object.isRequired
-  };
+  // static propTypes = {
+  //   activities: PropTypes.object.isRequired
+  // };
   componentDidMount() {
     this.props.getActivs();
   }
@@ -18,36 +24,35 @@ class Activities extends Component {
   render() {
     const { activities } = this.props;
     return (
-      <Container>
-        <Carousel>
-          <TransitionGroup className="city-list">
-            {activities &&
-              activities.map(activities => {
-                return (
-                  <CSSTransition>
-                    <Carousel.Item>
-                      <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
-                        alt="First slide"
-                      />
-                      <Carousel.Caption>
-                        <h3>{activities.title}</h3>
-                        <p>
-                          Nulla vitae elit libero, a pharetra augue mollis
-                          interdum.
-                        </p>
-                      </Carousel.Caption>
-                    </Carousel.Item>
-                  </CSSTransition>
-                );
-              })}
-          </TransitionGroup>
-        </Carousel>
-      </Container>
+      <div className={activities}>
+        <GridList className={activities} cols={2.5}>
+          {activities &&
+            activities.map(activities => (
+              <GridListTile key={activities.address}>
+                <img src={activities.img} alt={activities.title} />
+                <GridListTileBar
+                  title={activities.MYtineraryName}
+                  classes={{
+                    root: activities.city,
+                    title: activities.title
+                  }}
+                  actionIcon={
+                    <IconButton>
+                      <StarBorderIcon className={activities.price} />
+                    </IconButton>
+                  }
+                />
+              </GridListTile>
+            ))}
+        </GridList>
+      </div>
     );
   }
 }
+
+Activities.propTypes = {
+  activities: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => {
   return {

@@ -6,6 +6,10 @@ const ActivitySchema = new Schema({
     type: String,
     required: true
   },
+  MYtineraryName: {
+    type: String,
+    required: true
+  },
   city: {
     type: String,
     required: true
