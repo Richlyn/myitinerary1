@@ -28,7 +28,7 @@ class Activities extends Component {
         <GridList className={activities} cols={2.5}>
           {activities &&
             activities.map(activities => (
-              <GridListTile key={activities.address}>
+              <GridListTile key={activities}>
                 <img src={activities.img} alt={activities.title} />
                 <GridListTileBar
                   title={activities.MYtineraryName}

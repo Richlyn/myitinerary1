@@ -30,18 +30,18 @@
 
   margin-top: 40%;
 }
-media {
+.media {
   height: 0;
   padding-top: 56.25%;
 }
 
-actions {
+.actions {
   display: flex;
 }
 
-expand {
+.expand {
   /* rotate:rotate(0deg); */
-  marginleft: auto;
+  margin-left: auto;
   /* transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     } */
@@ -50,6 +50,6 @@ expand {
     transform: rotate(180deg);
   } */
 }
-avatar {
+.MuiAvatar-root-35 {
   background-color: red;
 }

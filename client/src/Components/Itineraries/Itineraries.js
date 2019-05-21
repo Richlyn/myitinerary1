@@ -24,25 +24,26 @@ class ItineraryList extends Component {
   state = { expanded: false };
   static propTypes = {
     // getCities: PropTypes.func.isRequired,
-    itineraries: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool
+    // itineraries: PropTypes.object.isRequired,
+    // isAuthenticated: PropTypes.bool
   };
-
+  componentDidMount() {
+    this.props.getItins();
+  }
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-  componentDidMount() {
-    this.props.getItins();
-  }
   render() {
     const { itineraries } = this.props;
-
     return (
       <Card className={itineraries}>
+        {/* {itineraries &&
+            itineraries.map(itineraries => ( */}
         <CardHeader
+          key={itineraries}
           avatar={
-            <Avatar aria-label="Recipe" className={itineraries.avatar}>
+            <Avatar aria-label="Recipe" className={itineraries.userPic}>
               R
             </Avatar>
           }
@@ -56,8 +57,8 @@ class ItineraryList extends Component {
         />
         <CardMedia
           className={itineraries.title}
-          image="/static/images/cards/paella.jpg"
-          title="Paella dish"
+          image={itineraries.img}
+          title={itineraries.title}
         />
         <CardContent>
           <Typography component="p">
@@ -92,6 +93,8 @@ class ItineraryList extends Component {
             </Typography>
           </CardContent>
         </Collapse>
+
+        {/* ))} */}
       </Card>
     );
   }
