@@ -1,24 +1,23 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getItins } from "../../Store/Actions/itineraryAction";
+import "./Itineraries.css";
 import PropTypes from "prop-types";
-
 import classnames from "classnames";
+import { connect } from "react-redux";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
+import ShareIcon from "@material-ui/icons/Share";
+import Collapse from "@material-ui/core/Collapse";
+import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CardHeader from "@material-ui/core/CardHeader";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { getItins } from "../../Store/Actions/itineraryAction";
 import Activities from "../../Components/Activities/Activities";
-import "./Itineraries.css";
 
 class ItineraryList extends Component {
   state = { expanded: false };
@@ -109,58 +108,12 @@ class ItineraryList extends Component {
   }
 }
 
-// Itineraries.propTypes = {
-//   itineraries: PropTypes.object.isRequired
-// };
 const mapStateToProps = state => {
   return {
     itineraries: state.itinerariesObj.itineraries
   };
 };
-// export default withStyles(styles)(RecipeReviewCard);
 export default connect(
   mapStateToProps,
   { getItins }
 )(ItineraryList);
-
-// render() {
-//   const { itineraries } = this.props;
-//   return (
-//     <Container>
-//       <ListGroup>
-//         <TransitionGroup className="itinerary-list">
-//           {itineraries &&
-//             itineraries.map(itineraries => {
-//               return (
-//                 <CSSTransition
-//                   key={itineraries.title}
-//                   timeout={500}
-//                   classNames="fade"
-//                 >
-//                   <ListGroupItem>
-//                     {this.props.isAuthenticated ? (
-//                       <Button
-//                         className="remove-btn"
-//                         color="danger"
-//                         size="sm"
-//                         onClick={this.onDeleteClick.bind(
-//                           this,
-//                           itineraries.title
-//                         )}
-//                       >
-//                         &times;
-//                       </Button>
-//                     ) : null}
-//                     {itineraries.MYtineraryName}, {itineraries.rating},{" "}
-//                     {itineraries.duration}, {itineraries.city},
-//                     {itineraries.country}
-//                   </ListGroupItem>
-//                 </CSSTransition>
-//               );
-//             })}
-//         </TransitionGroup>
-//       </ListGroup>
-//     </Container>
-//   );
-// }
-// }
