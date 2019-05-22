@@ -48,7 +48,6 @@ class ItineraryList extends Component {
                       alt={itineraries.title}
                       src={itineraries.userPic}
                       className={itineraries.bigAvatar}
-                      className={itineraries.userName}
                     />
                   }
                   action={

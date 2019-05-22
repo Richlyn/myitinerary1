@@ -8,6 +8,5 @@ const rootReducer = combineReducers({
   citiesObj: cityReducer,
   itinerariesObj: itineraryReducer,
   activitiesObj: activityReducer
-  //cardsObj: cardsReducer
 });
 export default rootReducer;

@@ -7,6 +7,7 @@ class Login extends Component {
     return (
       <div>
         <img src={LoginImg} className="LoginImg" alt="Login" />
+        <div class="g-signin2" data-onsuccess="onSignIn" />
       </div>
     );
   }

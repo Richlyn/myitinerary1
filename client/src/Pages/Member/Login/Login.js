@@ -4,7 +4,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <header>Log In Here</header>
+        <a href="/api/google">Sign In with Google</a>
       </div>
     );
   }

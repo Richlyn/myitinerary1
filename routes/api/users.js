@@ -4,6 +4,7 @@ var jwt = require("jsonwebtoken");
 var key = require("../../config/keys");
 var User = require("../../models/User");
 var router = express.Router();
+const passport = require("passport");
 
 router.post("/register", function(req, res) {
   User.findOne({ email: req.body.email }).then(user => {
@@ -84,6 +85,18 @@ router.post("/login", function(req, res) {
 
 router.get("/logout", function(req, res) {
   res.status(200).send({ auth: false, token: null });
+});
+
+//auth with google
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile"]
+  })
+);
+//callback route for google to redirect to
+router.get("/google/redirect", function(req, res) {
+  res.send("you reached a call back uri");
 });
 
 module.exports = router;

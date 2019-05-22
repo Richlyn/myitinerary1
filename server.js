@@ -2,9 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const db = require("./config/db").mongoURI;
+const passportSetup = require("./config/passportSetup");
 
 const app = express();
 const port = process.env.PORT || 5000;
+app.set("view engine", "ejs");
 
 //Connect to Mongo
 mongoose
@@ -16,17 +18,17 @@ mongoose
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const cities = require("./routes/api/cities");
-const itineraries = require("./routes/api/itineraries");
-const activities = require("./routes/api/activities");
-const userRoute = require("./routes/api/users");
 const cors = require("cors");
-
+const citiesRoute = require("./routes/api/cities");
+const userRoute = require("./routes/api/users");
+const activitiesRoute = require("./routes/api/activities");
+const itinerariesRoute = require("./routes/api/itineraries");
 //importing the routes
-app.use("/api/cities", cities);
-app.use("/api/itineraries", itineraries);
-app.use("/api/activities", activities);
+app.use("/api/cities", citiesRoute);
 app.use("/api/users", userRoute);
+app.use("/api/activities", activitiesRoute);
+app.use("/api/itineraries", itinerariesRoute);
+
 app.use(
   cors({
     origin: "http://localhost:3000"
