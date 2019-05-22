@@ -24,7 +24,7 @@ class ItineraryList extends Component {
   state = { expanded: false };
   static propTypes = {
     // getCities: PropTypes.func.isRequired,
-    // itineraries: PropTypes.object.isRequired,
+    itineraries: PropTypes.object.isRequired
     // isAuthenticated: PropTypes.bool
   };
   componentDidMount() {
@@ -38,63 +38,72 @@ class ItineraryList extends Component {
     const { itineraries } = this.props;
     return (
       <Card className={itineraries}>
-        {/* {itineraries &&
-            itineraries.map(itineraries => ( */}
-        <CardHeader
-          key={itineraries}
-          avatar={
-            <Avatar aria-label="Recipe" className={itineraries.userPic}>
-              R
-            </Avatar>
-          }
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title={itineraries.MYtineraryName}
-          subheader="September 14, 2016" //create time stamp
-        />
-        <CardMedia
-          className={itineraries.title}
-          image={itineraries.img}
-          title={itineraries.title}
-        />
-        <CardContent>
-          <Typography component="p">
-            {itineraries.city} {itineraries.country} {itineraries.duration} ,
-            {itineraries.rating}
-          </Typography>
-        </CardContent>
-        <CardActions className={itineraries.actions} disableActionSpacing>
-          <IconButton aria-label="Add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="Share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton
-            className={classnames(itineraries.expand, {
-              [itineraries.expandOpen]: this.state.expanded
-            })}
-            onClick={this.handleExpandClick}
-            aria-expanded={this.state.expanded}
-            aria-label="Show more"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
-        </CardActions>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Activities:</Typography>
-            <Typography paragraph>Here's what you can do</Typography>
-            <Typography paragraph>
-              <Activities />
-            </Typography>
-          </CardContent>
-        </Collapse>
-
-        {/* ))} */}
+        {itineraries &&
+          itineraries.map(itineraries => {
+            return (
+              <React.Fragment>
+                <CardHeader
+                  key={itineraries}
+                  avatar={
+                    <Avatar
+                      alt={itineraries.title}
+                      src={itineraries.userPic}
+                      className={itineraries.bigAvatar}
+                      className={itineraries.userName}
+                    />
+                  }
+                  action={
+                    <IconButton>
+                      <MoreVertIcon />
+                    </IconButton>
+                  }
+                  title={itineraries.MYtineraryName}
+                  // subheader="September 14, 2016" //create time stamp
+                />
+                <CardMedia
+                  className={itineraries.title}
+                  title={itineraries.title}
+                />
+                <img src={itineraries.img} alt={itineraries.title} />
+                <CardContent>
+                  <Typography component="p">
+                    {itineraries.city} {itineraries.country}{" "}
+                    {itineraries.duration} ,{itineraries.rating}
+                  </Typography>
+                </CardContent>
+                <CardActions
+                  className={itineraries.actions}
+                  disableActionSpacing
+                >
+                  <IconButton aria-label="Add to favorites">
+                    <FavoriteIcon />
+                  </IconButton>
+                  <IconButton aria-label="Share">
+                    <ShareIcon />
+                  </IconButton>
+                  <IconButton
+                    className={classnames(itineraries.expand, {
+                      [itineraries.expandOpen]: this.state.expanded
+                    })}
+                    onClick={this.handleExpandClick}
+                    aria-expanded={this.state.expanded}
+                    aria-label="Show more"
+                  >
+                    <ExpandMoreIcon />
+                  </IconButton>
+                </CardActions>
+                <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+                  <CardContent>
+                    <Typography paragraph>Activities:</Typography>
+                    <Typography paragraph>Here's what you can do</Typography>
+                    <Typography paragraph>
+                      <Activities />
+                    </Typography>
+                  </CardContent>
+                </Collapse>
+              </React.Fragment>
+            );
+          })}
       </Card>
     );
   }

@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/cities", require("./routes/api/cities"));
 app.use("/api/itineraries", require("./routes/api/itineraries"));
 app.use("/api/activities", require("./routes/api/activities"));
-//app.use("/api/users", require("./routes/api/user"));
+app.use("/api/users", require("./routes/api/users"));
 app.use(
   cors({
     origin: "http://localhost:3000"

@@ -27,8 +27,7 @@
 
 .MuiPaper-root-2 {
   max-width: 400;
-
-  margin-top: 40%;
+  /* margin-top: 40%; */
 }
 .media {
   height: 0;
@@ -49,7 +48,4 @@
   /* expandOpen {
     transform: rotate(180deg);
   } */
-}
-.MuiAvatar-root-35 {
-  background-color: red;
 }
